@@ -1,0 +1,35 @@
+slf4j 日志使用
+一、创建项目
+    这里使用的是 springboot 项目
+二、添加依赖
+    这里使用 lombok 依赖，更加方便，推荐使用。
+三、在控制器添加注解
+    @Slf4j
+三、添加配置
+    # 设置端口
+    server:
+      port: 8080
+    # 设置日志打印
+    # logging.level.root: 日志级别
+    # logging.pattern.console: 日志输出格式
+      # %m为消息
+      # %n为换行
+      # %p 级别
+      # %t 为线程名 %16t 则线程名占16位
+      # %clr 是添加颜色
+      # 例如 %clr（%m） 则日志消息带有颜色
+    # logging.file.name: 记录日志到文件
+    # logging.file.logback.rollingpolicy.max-file-size: 日志文件大小
+    # logging.file.logback.rollingpolicy.file-name-pattern: 超过最大后，重新创建日志文件名称
+    logging:
+      level:
+        root: error
+      pattern:
+        console: "%d - %m %n"
+      file:
+        name: E:\myJavaProject\springbootSlf4j\server.log
+      logback:
+        rollingpolicy:
+          max-file-size: 1KB
+          file-name-pattern: E:\myJavaProject\springbootSlf4j\server.%d{yyyy-MM-dd}.%i.log
+
